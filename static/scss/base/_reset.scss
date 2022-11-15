@@ -1,0 +1,16 @@
+// **** RESET **** //
+// =============== //
+
+*, *::after, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+  font-family: 'roboto', sans-serif;
+  background: #333;
+  max-width: 1920px;
+  position: relative;
+  margin: 0 auto;
+}

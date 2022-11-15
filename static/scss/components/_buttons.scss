@@ -1,0 +1,13 @@
+
+button{
+    background: transparent;
+    color: $color-white;
+    padding: 5px 25px;
+    border: 2px solid $color-white;
+    transition: .3s;
+    cursor: pointer;
+    &:hover{
+        border: 2px solid $color-black;
+        color: $color-black;
+    }
+}
