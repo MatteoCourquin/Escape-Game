@@ -1,11 +1,7 @@
 <template>
   <header>
     <ul>
-      <li><a href="#">États-Unis</a></li>
-      <li><a href="#">Inde</a></li>
-      <li><a href="#">Égypte</a></li>
-      <li><a href="#">Japon</a></li>
-      <li><a href="#">Russie</a></li>
+      <li v-for="(pays, i) in pays"><a :href="'#' + pays.path">{{pays.name}}</a></li>
     </ul>
   </header>
 </template>
@@ -14,10 +10,13 @@
 
 export default {
   name: "TheHeader",
+  props: {
+    pays: Array,
+  },
   data() {
     return {};
   },
-  methods: {}
+  methods: {},
 }
 
 </script>
@@ -25,6 +24,9 @@ export default {
 <style scoped lang='scss'>
 
 header{
+  z-index: 100;
+  position: fixed;
+  width: 100%;
   height: 80px;
   display: flex;
   justify-content: flex-start;

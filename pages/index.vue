@@ -1,8 +1,8 @@
 <template>
   <div>
-    <TheHeader />
+    <TheHeader :pays=pays />
     <Hero />
-    <Component v-for="(pays, i) in pays" :pays=pays.pays :id=i+1 />
+    <Parallax :pays=pays />
   </div>
 </template>
 
@@ -10,28 +10,33 @@
 
 import TheHeader from '../components/TheHeader.vue';
 import Hero from '../components/Hero.vue';
-import Component from '../components/Component.vue';
+import Parallax from '../components/Parallax.vue';
 
 export default {
   name: "IndexPage",
-  components: { TheHeader, Hero, Component },
+  components: { TheHeader, Hero, Parallax },
   data() {
     return {
       pays: [
         {
-          pays: "États-Unis",
+          name: "Comcity",
+          path: 'us',
         },
         {
-          pays: "inde",
+          name: "3DLand",
+          path: 'india',
         },
         {
-          pays: "Égypte",
+          name: "Creaworld",
+          path: 'egypt',
         },
         {
-          pays: "Japon",
+          name: "Japon",
+          path: 'japan',
         },
         {
-          pays: "Russie",
+          name: "Russie",
+          path: 'russia',
         },
       ]
     };
