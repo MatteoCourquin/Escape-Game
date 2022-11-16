@@ -3,6 +3,7 @@
     <TheHeader :pays=pays />
     <Hero />
     <Parallax :pays=pays />
+    <TheFooter />
   </div>
 </template>
 
@@ -11,10 +12,11 @@
 import TheHeader from '../components/TheHeader.vue';
 import Hero from '../components/Hero.vue';
 import Parallax from '../components/Parallax.vue';
+import TheFooter from '../components/TheFooter.vue';
 
 export default {
   name: "IndexPage",
-  components: { TheHeader, Hero, Parallax },
+  components: { TheHeader, Hero, Parallax, TheFooter },
   data() {
     return {
       pays: [

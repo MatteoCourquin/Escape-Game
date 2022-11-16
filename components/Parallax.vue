@@ -7,7 +7,7 @@
         </div>
       </div>
 
-      <nuxt-img :class="'img-asset1 parallax-bg' + id" data-speed=".18" :src="`/img/parallax/${pays.path}/asset1.png`" />
+      <!-- <nuxt-img :class="'img-asset1 parallax-bg' + id" data-speed=".18" :src="`/img/parallax/${pays.path}/asset1.png`" /> -->
       <nuxt-img :class="'img-asset2 parallax-bg' + id" data-speed=".08" :src="`/img/parallax/${pays.path}/asset2.png`" />
       <nuxt-img :class="'img-asset3 parallax-bg' + id" data-speed=".02" :src="`/img/parallax/${pays.path}/asset3.png`" />
     </section>
@@ -32,17 +32,12 @@ export default {
     parallax() {
 
       gsap.utils.toArray(".parallax-section").forEach((section) => {
-        gsap.from(section.querySelectorAll(".parallax-bg"), {
-          opacity: 0,
-          ease: "none",
-        });
         gsap.utils.toArray(".parallax-bg" + this.id).forEach((layer) => {
           gsap.to(layer, {
             scrollTrigger: {
               trigger: section,
-              start: "50% 50%",
+              start: "60% 50%",
               end: "bottom top",
-              markers: true,
               scrub: true
             },
             y: (i, target) => -5000 * target.dataset.speed,
@@ -94,7 +89,6 @@ export default {
 
 .parallax-section{
   position: relative;
-  flex-direction: column;
   height: 200vh;
 
   img{
@@ -108,11 +102,11 @@ export default {
   }
   .img-asset2{
     z-index: 20;
-    bottom: -20%;
+    bottom: -25%;
   }
   .img-asset3{
     z-index: 10;
-    bottom: -0%;
+    bottom: 0%;
   }
 }
 
