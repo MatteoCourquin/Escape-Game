@@ -2,7 +2,7 @@
   <div class="container-parallax-section">
     <section
       v-for="(pays, i) in pays"
-      class="parallax-section"
+      :class="'parallax-section parallax-section' + (i + 1)"
       :id="`${pays.path}`"
     >
       <div class="time-line">
@@ -15,17 +15,17 @@
       </div>
 
       <nuxt-img
-        :class="'img-asset1 parallax-item' + id"
+        :class="'img-asset1 parallax-item' + (i + 1)"
         data-speed=".16"
         :src="`/img/parallax/${pays.path}/asset1.png`"
       />
       <nuxt-img
-        :class="'img-asset2 parallax-item' + id"
+        :class="'img-asset2 parallax-item' + (i + 1)"
         data-speed=".08"
         :src="`/img/parallax/${pays.path}/asset2.png`"
       />
       <nuxt-img
-        :class="'img-asset3 parallax-item' + id"
+        :class="'img-asset3 parallax-item' + (i + 1)"
         data-speed=".02"
         :src="`/img/parallax/${pays.path}/asset3.png`"
       />
@@ -47,25 +47,26 @@ export default {
     return {};
   },
   methods: {
-    parallax() {
-      gsap.utils.toArray(".parallax-section").forEach((section) => {
-        gsap.utils.toArray(".parallax-item" + this.id).forEach((layer) => {
-          gsap.to(layer, {
-            scrollTrigger: {
-              trigger: section,
-              start: "top top",
-              end: "bottom top",
-              scrub: true,
-            },
-            y: (i, target) => -5000 * target.dataset.speed,
-            ease: "out",
-          });
-        });
+    startParallax() {
+      document.querySelectorAll('.parallax-section').forEach((section, i) => {
+        this.parallax(i+1)
+      });
+    },
+    parallax(i) {
+      gsap.to(`.parallax-item${i}`, {
+        scrollTrigger: {
+          trigger: `.parallax-section${i}`,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+        y: (i, target) => -5000 * target.dataset.speed,
+        ease: "out",
       });
     },
   },
   mounted() {
-    this.parallax();
+    this.startParallax();
   },
 };
 </script>
