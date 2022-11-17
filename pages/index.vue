@@ -23,22 +23,27 @@ export default {
         {
           name: "Comcity",
           path: 'us',
+          room: 'au Creativ\'Lab'
         },
         {
           name: "3DLand",
           path: 'india',
+          room: 'au Hub'
         },
         {
           name: "Creaworld",
           path: 'egypt',
+          room: 'à la Mezzanine'
         },
         {
-          name: "Japon",
+          name: "JVtown",
           path: 'japan',
+          room: 'à la Terrasse'
         },
         {
-          name: "Russie",
+          name: "Devopolis",
           path: 'russia',
+          room: 'à la Cafet'
         },
       ]
     };

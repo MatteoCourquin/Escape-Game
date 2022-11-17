@@ -8,6 +8,7 @@
       <div class="time-line">
         <div class="time-line-round">
           <span class="time-line-pays">{{ pays.name }}</span>
+          <span class="time-line-room">Rendez-vous {{ pays.room }}</span>
         </div>
       </div>
 
@@ -74,7 +75,7 @@ export default {
   position: absolute;
   right: 20%;
   top: 0;
-  height: 100%;
+  height: 120%;
   width: 2px;
   background: $color-white;
   z-index: 50;
@@ -91,6 +92,12 @@ export default {
       white-space: nowrap;
       font-size: clamp(1.6rem, 3vw, 4rem);
       transform: translate(calc(-100% + -20px), -50%);
+    }
+    .time-line-room{
+      position: absolute;
+      white-space: nowrap;
+      font-family: $font-roboto-regular;
+      transform: translate(calc(-100% + -20px), calc(100% + 20px));
     }
   }
 }
@@ -123,8 +130,8 @@ export default {
   .img-asset1 {
     width: 30%;
     z-index: 30;
-    left: 15%;
-    bottom: 10%;
+    left: 0%;
+    bottom: 5%;
   }
   .img-asset2 {
     z-index: 20;

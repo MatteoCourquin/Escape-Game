@@ -5,34 +5,27 @@
     </div>
 
     <div class="hero-description">
-      <nuxt-img class="logo-iimventure" src="/img/logo-imventure.png" />
+      <nuxt-img class="logo-iimventure" src="/img/logo-iimventure.png" />
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni eligendi
-        rerum ut ipsa quas dolores commodi tempore quisquam. Rerum incidunt
-        dolores assumenda praesentium voluptatibus qui vero ipsum itaque soluta
-        eius.
+        Le fameux Pesaro te mettra au défi d'embarquer dans une aventure pour un
+        escape game unique à l'intérieur du campus de l'arche IIM.
+        <br>
+        <br>
+        Challenge ton esprit de futur expert du digital à travers 5 univers
+        épiques. Pesaro compte sur toi, alors n'attend plus et commence
+        l'aventure !
       </p>
       <div>
-        <button class="button button-transparent" @click="scroll">
-            Commencer l'aventure
-          </button>
         <button class="button button-white" @click="togglePopUpVideo">
-          Voir le pitch
+          Commencer l'aventure
         </button>
+        <button class="button button-transparent" @click="scroll">Go</button>
       </div>
     </div>
 
     <div class="pop-up-video" @click="togglePopUpVideo">
       <video controls width="250" id="video-pitch">
-        <!-- <source src="/media/cc0-videos/flower.webm" type="video/webm" /> -->
-
         <source src="~/static/video/video-pitch.mp4" type="video/mp4" />
-
-        Download the
-        <a href="/media/cc0-videos/flower.webm">WEBM</a>
-        or
-        <a href="/media/cc0-videos/flower.mp4">MP4</a>
-        video.
       </video>
     </div>
   </div>

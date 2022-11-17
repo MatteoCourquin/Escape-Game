@@ -5,7 +5,8 @@
     </div>
 
     <div class="footer-description">
-      <nuxt-img class="logo-iimventure" src='/img/logo-imventure.png' />
+      <nuxt-img class="logo-iimventure" src='/img/logo-iimventure-small.png' />
+      <p>Félicitations ! Tu as su résoudre les énigmes de l'IIMventure. Garde encore un peu de jugeote pour compléter le TotIIM, qui te permettra de rejoindre ton axe préféré au sein de l'IIM.</p>
     </div>
   </footer>
 </template>
@@ -50,13 +51,19 @@ footer {
   position: relative;
   .footer-description{
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    align-items: center;
     height: 100%;
     margin: clamp(20px, 10vw, 100px);
     width: 50%;
+
+    @include respoM{
+      width: 60%;
+      flex-direction: column;
+      justify-content: center;
+    }
     .logo-iimventure{
-      width: 80%;
+      width: 200px;
+      margin-right: clamp(20px, 5vw, 100px);
     }
     p{
       font-size: 1.1rem;
