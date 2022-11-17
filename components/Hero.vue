@@ -5,14 +5,35 @@
     </div>
 
     <div class="hero-description">
-      <nuxt-img class="logo-iimventure" src='/img/logo-imventure.png' />
+      <nuxt-img class="logo-iimventure" src="/img/logo-imventure.png" />
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni eligendi
         rerum ut ipsa quas dolores commodi tempore quisquam. Rerum incidunt
         dolores assumenda praesentium voluptatibus qui vero ipsum itaque soluta
         eius.
       </p>
-      <a href="#us"><button>Commencer l'aventure</button></a>
+      <div>
+        <button class="button button-transparent" @click="scroll">
+            Commencer l'aventure
+          </button>
+        <button class="button button-white" @click="togglePopUpVideo">
+          Voir le pitch
+        </button>
+      </div>
+    </div>
+
+    <div class="pop-up-video" @click="togglePopUpVideo">
+      <video controls width="250" id="video-pitch">
+        <!-- <source src="/media/cc0-videos/flower.webm" type="video/webm" /> -->
+
+        <source src="~/static/video/video-pitch.mp4" type="video/mp4" />
+
+        Download the
+        <a href="/media/cc0-videos/flower.webm">WEBM</a>
+        or
+        <a href="/media/cc0-videos/flower.mp4">MP4</a>
+        video.
+      </video>
     </div>
   </div>
 </template>
@@ -23,7 +44,25 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    scroll() {
+      let pageHeight = window.innerHeight;
+      window.scrollBy(0, pageHeight);
+    },
+    togglePopUpVideo() {
+      const popUpVideo = document.querySelector(".pop-up-video");
+      const video = document.querySelector("#video-pitch");
+
+      popUpVideo.classList.contains("active")
+        ? (popUpVideo.classList.remove("active"), video.pause())
+        : (popUpVideo.classList.add("active"), video.play());
+
+      video.addEventListener("ended", () => {
+        const popUpVideo = document.querySelector(".pop-up-video");
+        popUpVideo.classList.remove("active");
+      });
+    },
+  },
 };
 </script>
 
@@ -52,23 +91,54 @@ export default {
   margin-top: 80px;
   height: calc(100vh - 80px);
   position: relative;
-  .hero-description{
+  .hero-description {
     display: flex;
     justify-content: center;
     flex-direction: column;
     height: 100%;
     margin: clamp(20px, 10vw, 100px);
     width: 50%;
-    .logo-iimventure{
+    .logo-iimventure {
       width: 80%;
     }
-    p{
+    p {
       font-size: 1.1rem;
       font-family: $font-roboto-medium;
       margin: clamp(20px, 2vw, 30px) 0;
     }
-    button{
-      font-size: 1.1rem;
+    .button:nth-child(1) {
+      margin-right: 20px;
+    }
+  }
+}
+
+.pop-up-video.active {
+  display: flex;
+  opacity: 1;
+  z-index: 80;
+  video {
+    transform: scale(1);
+  }
+}
+.pop-up-video {
+  position: fixed;
+  transition: opacity 0.2s ease;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #122547ae;
+  z-index: -1;
+  video {
+    transition: transform 0.5s ease;
+    width: 60%;
+    transform: scale(0);
+    @include respoXL {
+      width: 90%;
     }
   }
 }
