@@ -7,8 +7,10 @@
     >
       <div class="time-line">
         <div class="time-line-round">
-          <span class="time-line-pays">{{ pays.name }}</span>
-          <span class="time-line-room">Rendez-vous {{ pays.room }}</span>
+          <div class="time-line-description">
+            <span class="time-line-pays">{{ pays.name }}</span>
+            <span class="time-line-room">Rendez-vous {{ pays.room }}</span>
+          </div>
         </div>
       </div>
 
@@ -51,7 +53,7 @@ export default {
           gsap.to(layer, {
             scrollTrigger: {
               trigger: section,
-              start: "60% 50%",
+              start: "top top",
               end: "bottom top",
               scrub: true,
             },
@@ -80,24 +82,33 @@ export default {
   background: $color-white;
   z-index: 50;
   .time-line-round {
-    position: absolute;
-    top: 30%;
+    position: sticky;
+    top: 40%;
+    margin-top: 120px;
     border-radius: 50%;
     width: 10px;
-    aspect-ratio: 1 / 1;
+    height: 10px;
     background: $color-white;
-    right: calc(20% - 4px);
-    .time-line-pays {
+    right: 20%;
+    transform: translateX(-40%);
+    .time-line-description{
+      backdrop-filter: blur(20px);
       position: absolute;
-      white-space: nowrap;
-      font-size: clamp(1.6rem, 3vw, 4rem);
+      padding: 10px 20px;
+      border-radius: $radius-current;
       transform: translate(calc(-100% + -20px), -50%);
-    }
-    .time-line-room{
-      position: absolute;
-      white-space: nowrap;
-      font-family: $font-roboto-regular;
-      transform: translate(calc(-100% + -20px), calc(100% + 20px));
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      flex-direction: column;
+      .time-line-pays {
+        white-space: nowrap;
+        font-size: clamp(1.6rem, 3vw, 4rem);
+      }
+      .time-line-room{
+        white-space: nowrap;
+        font-family: $font-roboto-regular;
+      }
     }
   }
 }
@@ -126,41 +137,30 @@ export default {
   img{
     width: 100%;
     position: absolute;
+    bottom: 0;
   }
   .img-asset1 {
     width: 30%;
     z-index: 30;
     left: 0%;
-    bottom: 5%;
+    bottom: 40%;
   }
   .img-asset2 {
     z-index: 20;
-    bottom: -25%;
   }
   .img-asset3 {
     z-index: 10;
-    bottom: 0%;
+    bottom: 20%;
   }
-  @media screen and (max-width: 1300px) {
-    .img-asset1 {
-      bottom: -40%;
+  @include respoM{
+    .img-asset1{
+      bottom: 20%;
     }
-    .img-asset2 {
-      bottom: -20%;
-    }
-    .img-asset3 {
-      bottom: 0%;
-    }
-  }
-  @media screen and (max-width: 600px) {
-    .img-asset1 {
-      bottom: -40%;
-    }
-    .img-asset2 {
-      bottom: -15%;
-    }
-    .img-asset3 {
-      bottom: 0%;
+    // .img-asset2{
+    //   bottom: ;
+    // }
+    .img-asset3{
+      bottom: 10%;
     }
   }
 }

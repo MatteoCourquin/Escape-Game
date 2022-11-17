@@ -23,12 +23,12 @@ export default {
         {
           name: "Comcity",
           path: 'us',
-          room: 'au Creativ\'Lab'
+          room: 'au Hub'
         },
         {
           name: "3DLand",
           path: 'india',
-          room: 'au Hub'
+          room: 'au Creativ\'Lab'
         },
         {
           name: "Creaworld",

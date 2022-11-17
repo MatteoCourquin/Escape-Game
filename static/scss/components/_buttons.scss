@@ -14,6 +14,7 @@
   font-size: 1.1rem;
   outline: none;
   border: none;
+  white-space: nowrap;
   &::before {
       content: '';
       position: absolute;
