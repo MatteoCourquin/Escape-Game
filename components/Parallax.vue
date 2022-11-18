@@ -8,8 +8,8 @@
       <div class="time-line"></div>
       <div class="time-line-round">
         <div class="time-line-description">
-          <span class="time-line-pays">{{ singlePays.name }}</span>
-          <span class="time-line-room">Rendez-vous {{ singlePays.room }}</span>
+          <h2 class="time-line-pays">{{ singlePays.name }}</h2>
+          <p class="time-line-room">Rendez-vous {{ singlePays.room }}</p>
         </div>
       </div>
 
@@ -85,10 +85,10 @@ export default {
 }
 .time-line-round {
   position: sticky;
-  top: 30%;
+  top: 25%;
   left: calc(80% - 2px);
   margin-top: 120px;
-  z-index: 999;
+  z-index: 50;
   border-radius: 50%;
   width: 10px;
   height: 10px;
@@ -96,6 +96,7 @@ export default {
   transform: translateX(-40%);
   .time-line-description {
     backdrop-filter: blur(20px);
+    box-shadow: $shadow-m;
     position: absolute;
     padding: 10px 20px;
     border-radius: $radius-current;
@@ -111,7 +112,6 @@ export default {
     }
     .time-line-room {
       white-space: nowrap;
-      font-family: $font-roboto-regular;
     }
   }
 }
@@ -144,7 +144,7 @@ export default {
   }
   .bird {
     width: 50%;
-    z-index: 30;
+    z-index: 60;
     left: 0%;
     bottom: 40%;
     position: absolute;
@@ -161,6 +161,7 @@ export default {
       bottom: 100%;
       left: 5%;
       backdrop-filter: blur(20px);
+      box-shadow: $shadow-m;
       padding: 10px 20px;
       border-radius: $radius-current;
       border: $border-current;

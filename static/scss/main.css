@@ -79,6 +79,10 @@ h2 {
   line-height: clamp(1.5rem, 3vw, 2.5rem);
 }
 
+p {
+  font-family: "Roboto-Regular", sans-serif;
+}
+
 .link {
   color: #f3f3f3;
   font-family: "Roboto-Medium", sans-serif;

@@ -13,6 +13,10 @@ h2{
   line-height: clamp(1.5rem, 3vw, 2.5rem);
 }
 
+p{
+  font-family: $font-roboto-regular;
+}
+
 .link{
   color: $color-white;
   font-family: $font-roboto-medium;
