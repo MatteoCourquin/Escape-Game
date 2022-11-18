@@ -1,33 +1,33 @@
 <template>
   <div class="container-parallax-section">
     <section
-      v-for="(pays, i) in pays"
+      v-for="(singlePays, i) in pays"
       :class="'parallax-section parallax-section' + (i + 1)"
-      :id="`${pays.path}`"
+      :id="`${singlePays.path}`"
     >
-      <div class="time-line">
-      </div>
+      <div class="time-line"></div>
       <div class="time-line-round">
         <div class="time-line-description">
-          <span class="time-line-pays">{{ pays.name }}</span>
-          <span class="time-line-room">Rendez-vous {{ pays.room }}</span>
+          <span class="time-line-pays">{{ singlePays.name }}</span>
+          <span class="time-line-room">Rendez-vous {{ singlePays.room }}</span>
         </div>
       </div>
 
-      <nuxt-img
-        :class="'img-asset1 parallax-item' + (i + 1)"
-        data-speed=".16"
-        :src="`/img/parallax/${pays.path}/asset1.png`"
-      />
+      <div :class="'bird parallax-item' + (i + 1)" data-speed=".16">
+        <nuxt-img class="bird" :src="`/img/parallax/${singlePays.path}/asset1.png`" />
+        <div v-if="singlePays.charade" class="charade">
+          <p v-for="(charade) in singlePays.charade">{{charade.text}}</p>
+        </div>
+      </div>
       <nuxt-img
         :class="'img-asset2 parallax-item' + (i + 1)"
         data-speed=".08"
-        :src="`/img/parallax/${pays.path}/asset2.png`"
+        :src="`/img/parallax/${singlePays.path}/asset2.png`"
       />
       <nuxt-img
         :class="'img-asset3 parallax-item' + (i + 1)"
         data-speed=".02"
-        :src="`/img/parallax/${pays.path}/asset3.png`"
+        :src="`/img/parallax/${singlePays.path}/asset3.png`"
       />
     </section>
   </div>
@@ -48,8 +48,8 @@ export default {
   },
   methods: {
     startParallax() {
-      document.querySelectorAll('.parallax-section').forEach((section, i) => {
-        this.parallax(i+1)
+      document.querySelectorAll(".parallax-section").forEach((section, i) => {
+        this.parallax(i + 1);
       });
     },
     parallax(i) {
@@ -94,11 +94,12 @@ export default {
   height: 10px;
   background: $color-white;
   transform: translateX(-40%);
-  .time-line-description{
+  .time-line-description {
     backdrop-filter: blur(20px);
     position: absolute;
     padding: 10px 20px;
     border-radius: $radius-current;
+    border: $border-current;
     transform: translate(calc(-100% + -20px), -50%);
     display: flex;
     justify-content: center;
@@ -108,7 +109,7 @@ export default {
       white-space: nowrap;
       font-size: clamp(1.6rem, 3vw, 4rem);
     }
-    .time-line-room{
+    .time-line-room {
       white-space: nowrap;
       font-family: $font-roboto-regular;
     }
@@ -136,16 +137,34 @@ export default {
   position: relative;
   height: clamp(600px, 200vh, 1700px);
 
-  img{
+  .bird, .img-asset2, .img-asset3 {
     width: 100%;
     position: absolute;
     bottom: 0;
   }
-  .img-asset1 {
-    width: 30%;
+  .bird {
+    width: 50%;
     z-index: 30;
     left: 0%;
     bottom: 40%;
+    position: absolute;
+    &:hover{
+      .charade{
+        transform: translate(0) scale(1);
+      }
+    }
+    .charade{
+      position: absolute;
+      z-index: 99;
+      transform: translate(-50%) scale(0);
+      transition: transform 0.2s ease;
+      bottom: 100%;
+      left: 5%;
+      backdrop-filter: blur(20px);
+      padding: 10px 20px;
+      border-radius: $radius-current;
+      border: $border-current;
+    }
   }
   .img-asset2 {
     z-index: 20;
@@ -154,14 +173,14 @@ export default {
     z-index: 10;
     bottom: 20%;
   }
-  @include respoM{
-    .img-asset1{
+  @include respoM {
+    .img-asset1 {
       bottom: 20%;
     }
     // .img-asset2{
     //   bottom: ;
     // }
-    .img-asset3{
+    .img-asset3 {
       bottom: 10%;
     }
   }

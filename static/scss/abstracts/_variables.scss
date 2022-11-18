@@ -34,6 +34,7 @@
 $color-white: #f3f3f3;
 $color-black: #000;
 $color-main: #122547;
+$color-sweet: rgba(255,255,255,0.1);
 
 // Fonts
 $font-roboto-black: 'Roboto-Black', sans-serif;
@@ -46,10 +47,9 @@ $font-roboto-thin: 'Roboto-Thin', sans-serif;
 // Radius
 $radius-current: 5px;
 
+// Border
+$border-current: 1px solid $color-sweet;
+
 // Shadows
 $shadow-m: 0 0 10px rgba(0, 0, 0, 0.2);
 $shadow-xl: 0 0 20px rgba(0, 0, 0, 0.2);
-
-// Spacing
-$spacing-xl: 20px;
-$spacing-m: 10px;

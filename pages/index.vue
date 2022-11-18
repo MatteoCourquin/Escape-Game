@@ -23,17 +23,35 @@ export default {
         {
           name: "Comcity",
           path: 'us',
-          room: 'au Hub'
+          room: 'au Hub',
+          charade: [
+            {text: 'Mon premier est le présent du verbe lire.'},
+            {text: 'Mon second est un ours en anglais.'},
+            {text: 'Mon troisième est la boisson préférée des Anglais.'},
+            {text: 'Mon tout a été sujet de nombreuses guerres dans l\'Histoire mondiale.'},
+          ]
         },
         {
           name: "3DLand",
           path: 'india',
-          room: 'au Creativ\'Lab'
+          room: 'au Creativ\'Lab',
+          charade: [
+            {text: 'Mon premier est le masculin de belle.'},
+            {text: 'Mon second est le lieux dans laquelle on passe notre nuit.'},
+            {text: 'Mon troisième est le mot forêt en anglais.'},
+            {text: 'Mon tout est dans l\'industrie cinématographique.'},
+          ]
         },
         {
           name: "Creaworld",
           path: 'egypt',
-          room: 'à la Mezzanine'
+          room: 'à la Mezzanine',
+          charade: [
+            {text: 'Mon premier se trouve au milieu du visage.'},
+            {text: 'Mon deuxième est un métal.'},
+            {text: 'Mon troisième est un célébre canari que gros minet aimerait bien manger.'},
+            {text: 'Mon tout a été une reine d\'Égypte.'},
+          ]
         },
         {
           name: "JVtown",
