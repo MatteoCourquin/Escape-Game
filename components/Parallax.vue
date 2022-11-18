@@ -6,11 +6,11 @@
       :id="`${pays.path}`"
     >
       <div class="time-line">
-        <div class="time-line-round">
-          <div class="time-line-description">
-            <span class="time-line-pays">{{ pays.name }}</span>
-            <span class="time-line-room">Rendez-vous {{ pays.room }}</span>
-          </div>
+      </div>
+      <div class="time-line-round">
+        <div class="time-line-description">
+          <span class="time-line-pays">{{ pays.name }}</span>
+          <span class="time-line-room">Rendez-vous {{ pays.room }}</span>
         </div>
       </div>
 
@@ -82,34 +82,35 @@ export default {
   width: 2px;
   background: $color-white;
   z-index: 50;
-  .time-line-round {
-    position: sticky;
-    top: 40%;
-    margin-top: 120px;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    background: $color-white;
-    right: 20%;
-    transform: translateX(-40%);
-    .time-line-description{
-      backdrop-filter: blur(20px);
-      position: absolute;
-      padding: 10px 20px;
-      border-radius: $radius-current;
-      transform: translate(calc(-100% + -20px), -50%);
-      display: flex;
-      justify-content: center;
-      align-items: end;
-      flex-direction: column;
-      .time-line-pays {
-        white-space: nowrap;
-        font-size: clamp(1.6rem, 3vw, 4rem);
-      }
-      .time-line-room{
-        white-space: nowrap;
-        font-family: $font-roboto-regular;
-      }
+}
+.time-line-round {
+  position: sticky;
+  top: 30%;
+  left: calc(80% - 2px);
+  margin-top: 120px;
+  z-index: 999;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background: $color-white;
+  transform: translateX(-40%);
+  .time-line-description{
+    backdrop-filter: blur(20px);
+    position: absolute;
+    padding: 10px 20px;
+    border-radius: $radius-current;
+    transform: translate(calc(-100% + -20px), -50%);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex-direction: column;
+    .time-line-pays {
+      white-space: nowrap;
+      font-size: clamp(1.6rem, 3vw, 4rem);
+    }
+    .time-line-room{
+      white-space: nowrap;
+      font-family: $font-roboto-regular;
     }
   }
 }

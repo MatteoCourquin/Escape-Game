@@ -39,7 +39,7 @@ export default {
     top: 100%;
     border-radius: 50%;
     width: 10px;
-    aspect-ratio: 1 / 1;
+    height: 10px;
     background: $color-white;
     right: calc(20% - 4px);
   }

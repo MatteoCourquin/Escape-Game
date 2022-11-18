@@ -65,8 +65,8 @@ export default {
 .time-line {
   position: absolute;
   right: 20%;
-  height: 50%;
-  bottom: 0;
+  height: 80%;
+  top: 50%;
   width: 2px;
   background: $color-white;
   .time-round {
@@ -74,7 +74,7 @@ export default {
     bottom: 100%;
     border-radius: 50%;
     width: 10px;
-    aspect-ratio: 1 / 1;
+    height: 10px;
     background: $color-white;
     right: calc(20% - 4px);
   }
